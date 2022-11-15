@@ -7,7 +7,7 @@ function operate() {
     let result;
     const a = +previousOperand;
     const b = +currentOperand;
-    if (isNaN(a) || isNaN(b)) return; // stop function if a or b is an empty string
+    if (isNaN(a) || isNaN(b)) return; // stop function if a or b is an empty string, but 0 is ok
     if (operation === "+") {
         result = calcAdd(a, b);
     } else if (operation === "-") {
@@ -54,16 +54,12 @@ function updateDisplay() {
 function keyboardSupport(e) {
     if(!(isNaN(e.key))) {
         appendNumber(e.key);
-        updateDisplay();
     } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
         chooseOperation(e.key);
-        updateDisplay();
     } else if (e.key == "Enter") {
         operate();
-        updateDisplay();
     } else if (e.key == "Backspace") {
         deleteNumber();
-        updateDisplay();
     }
 }
 
@@ -110,8 +106,8 @@ deleteButton.addEventListener("click", () => {
 
 document.addEventListener("keydown", e => {
     keyboardSupport(e);
+    updateDisplay();
 });
     
 
 clear();
-
