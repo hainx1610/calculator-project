@@ -32,6 +32,7 @@ function deleteNumber() {
 }
 
 function appendNumber(number) {
+    if (number === "." && currentOperand.includes(".")) return; // can't add another "."
     currentOperand += number;
 }
 
