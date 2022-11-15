@@ -51,6 +51,22 @@ function updateDisplay() {
     previousOperandElement.textContent = previousOperand + " " + operation;
 }
 
+function keyboardSupport(e) {
+    if(!(isNaN(e.key))) {
+        appendNumber(e.key);
+        updateDisplay();
+    } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
+        chooseOperation(e.key);
+        updateDisplay();
+    } else if (e.key == "Enter") {
+        operate();
+        updateDisplay();
+    } else if (e.key == "Backspace") {
+        deleteNumber();
+        updateDisplay();
+    }
+}
+
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButton = document.querySelector("[data-equals]");
@@ -93,19 +109,7 @@ deleteButton.addEventListener("click", () => {
 })
 
 document.addEventListener("keydown", e => {
-    if(!(isNaN(e.key))) {
-        appendNumber(e.key);
-        updateDisplay();
-    } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
-        chooseOperation(e.key);
-        updateDisplay();
-    } else if (e.key == "Enter") {
-        operate();
-        updateDisplay();
-    } else if (e.key == "Backspace") {
-        deleteNumber();
-        updateDisplay();
-    }
+    keyboardSupport(e);
 });
     
 
