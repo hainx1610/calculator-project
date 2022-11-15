@@ -5,8 +5,8 @@ const calcDivide = (a, b) => a / b;
 
 function operate() {
     let result;
-    const a = parseFloat(previousOperand);
-    const b = parseFloat(currentOperand);
+    const a = +previousOperand;
+    const b = +currentOperand;
     if (isNaN(a) || isNaN(b)) return; // stop function if a or b is an empty string
     if (operation === "+") {
         result = calcAdd(a, b);
