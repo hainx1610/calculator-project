@@ -93,4 +93,3 @@ deleteButton.addEventListener("click", () => {
 })
 
 clear();
-console.log(Boolean("+"))
