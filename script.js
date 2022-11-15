@@ -48,7 +48,7 @@ function chooseOperation(op) {
 
 function updateDisplay() {
     currentOperandElement.textContent = currentOperand;
-    previousOperandElement.textContent = previousOperand + operation;
+    previousOperandElement.textContent = previousOperand + " " + operation;
 }
 
 const numberButtons = document.querySelectorAll("[data-number]");
