@@ -12,9 +12,9 @@ function operate() {
         result = calcAdd(a, b);
     } else if (operation === "-") {
         result = calcSubstract(a, b);
-    } else if (operation === "×"){
+    } else if (operation === "×" || operation === "*"){
         result = calcMultiply(a, b);
-    } else if (operation === "÷") {
+    } else if (operation === "÷" || operation === "/") {
         result = calcDivide(a, b);
     } else return;
     clear();
@@ -92,4 +92,22 @@ deleteButton.addEventListener("click", () => {
     updateDisplay();
 })
 
+document.addEventListener("keydown", e => {
+    if(!(isNaN(e.key))) {
+        appendNumber(e.key);
+        updateDisplay();
+    } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
+        chooseOperation(e.key);
+        updateDisplay();
+    } else if (e.key == "Enter") {
+        operate();
+        updateDisplay();
+    } else if (e.key == "Backspace") {
+        deleteNumber();
+        updateDisplay();
+    }
+});
+    
+
 clear();
+
