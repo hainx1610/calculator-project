@@ -12,11 +12,11 @@ function operate() {
         result = calcAdd(a, b);
     } else if (operation === "-") {
         result = calcSubstract(a, b);
-    } else if (operation === "*"){
+    } else if (operation === "×"){
         result = calcMultiply(a, b);
-    } else if (operation === "/") {
+    } else if (operation === "÷") {
         result = calcDivide(a, b);
-    };
+    } else return;
     clear();
     currentOperand = result;
 };
@@ -37,7 +37,7 @@ function appendNumber(number) {
 
 function chooseOperation(op) {
     if (currentOperand === "") return // not execute function if current is empty
-    if (previousOperand !== "") {
+    if (previousOperand !== "") { // calculate if there is a value in previous
         operate();
     }
     operation = op;
