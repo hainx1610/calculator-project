@@ -1,7 +1,7 @@
-const calcAdd = (a, b) => +a + +b;
-const calcSubstract = (a, b) => +a - +b;
-const calcMultiply = (a, b) => +a * +b;
-const calcDivide = (a, b) => +a / +b;
+const calcAdd = (a, b) => a + b;
+const calcSubstract = (a, b) => a - b;
+const calcMultiply = (a, b) => a * b;
+const calcDivide = (a, b) => a / b;
 
 function operate() {
     let result;
@@ -24,11 +24,11 @@ function operate() {
 function clear() {
     currentOperand = "";
     previousOperand = "";
-    operation = undefined;
+    operation = "";
 }
 
 function deleteNumber() {
-
+    currentOperand = currentOperand.toString().slice(0, -1);
 }
 
 function appendNumber(number) {
@@ -92,3 +92,4 @@ deleteButton.addEventListener("click", () => {
 })
 
 clear();
+console.log(Boolean("+"))
